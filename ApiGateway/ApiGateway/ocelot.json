@@ -1,0 +1,91 @@
+{
+  "Routes": [
+    //{
+    //  "UpstreamPathTemplate": "/ai",
+    //  "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+    //  "DownstreamPathTemplate": "/api/ai",
+    //  "DownstreamScheme": "http",
+    //  "DownstreamHostAndPorts": [
+    //    {
+    //      "Host": "aicontentservice",
+    //      "Port": 80
+    //    }
+    //  ]
+    //},
+    //{
+    //  "UpstreamPathTemplate": "/reviews",
+    //  "UpstreamHttpMethod": [ "Get", "Post" ],
+    //  "DownstreamPathTemplate": "/api/reviews",
+    //  "DownstreamScheme": "http",
+    //  "DownstreamHostAndPorts": [
+    //    {
+    //      "Host": "reviewservice",
+    //      "Port": 80
+    //    }
+    //  ]
+    //},
+    //{
+    //  "UpstreamPathTemplate": "/reviews/{id}",
+    //  "UpstreamHttpMethod": [ "Get", "Put", "Delete" ],
+    //  "DownstreamPathTemplate": "/api/reviews/{id}",
+    //  "DownstreamScheme": "http",
+    //  "DownstreamHostAndPorts": [
+    //    {
+    //      "Host": "reviewservice",
+    //      "Port": 80
+    //    }
+    //  ]
+    //},
+    {
+      "UpstreamPathTemplate": "/videometa",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/VideoMetadata",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "videometaservice",
+          "Port": 5175
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/videometa/{id}",
+      "UpstreamHttpMethod": [ "Get", "Put", "Delete" ],
+      "DownstreamPathTemplate": "/VideoMetadata/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "videometaservice",
+          "Port": 5175
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/videometa",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamPathTemplate": "/VideoMetadata",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "videometaservice",
+          "Port": 5175
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/blob",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/Blob",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "blobstorageservice",
+          "Port": 5099
+        }
+      ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:5245"
+  }
+}

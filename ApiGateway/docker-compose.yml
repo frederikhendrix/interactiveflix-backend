@@ -1,8 +1,86 @@
-version: '3.4'
-
+version: '3.8'
 services:
-  apigateway:
-    image: ${DOCKER_REGISTRY-}apigateway
+  postgresql:
+    image: postgres
+    container_name: postgresql
+    restart: always
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - 5432:5432
+
+  mongo:
+    image: mongo:latest
+    container_name: mongodb-videometa-container
+    command: mongod --auth --bind_ip_all
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+      - ../../VideoMetaService/VideoMetaService/VideoMetaService/init-mongo.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    environment:
+      MONGO_INITDB_DATABASE: VideoMetaDB
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: Test123!
+
+  
+
+  # aicontentservice:
+  #   build:
+  #     context: ../../AiContentService/AiService/AiService
+
+  # reviewservice:
+  #   build:
+  #     context: ../../ReviewService/ReviewService/ReviewService
+  #   environment:
+  #     DATABASE_URL: postgresql://postgres:postgres@postgresql:5432/reviewservice
+  #   depends_on:
+  #     - postgresql
+
+  videometaservice:
     build:
-      context: .
-      dockerfile: ApiGateway/Dockerfile
+      context: ../../VideoMetaService/VideoMetaService/VideoMetaService
+    container_name: videometaservice
+    restart: always
+    environment:
+      MONGO_URI: mongo://admin:Test123!@mongodb-videometa-container:27017/VideoMetaDB
+    ports:
+      - "5175:5175"
+    depends_on:
+      - mongo
+
+  blobstorageservice:
+    build:
+      context: ../../BlobStorageService/BlobStorageService/BlobStorageService
+    container_name: blobstorageservice
+    restart: always
+    ports:
+      - "5099:5099"
+
+  gatewayapi:
+    build:
+      context: ./ApiGateway
+    container_name: gatewayapi
+    restart: always
+    ports:
+      - "5245:5245"
+    depends_on:
+      - videometaservice
+      - blobstorageservice
+
+  # userservice:
+  #   build:
+  #     context: ../../UserService/UserService/UserService
+  #   environment:
+  #     DATABASE_URL: postgresql://postgres:postgres@postgresql:5432/userservice
+  #   depends_on:
+  #     - postgresql
+
+volumes:
+  postgres-data:
+  mongo-data:
+    driver: local
+
