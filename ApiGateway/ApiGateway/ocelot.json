@@ -1,41 +1,149 @@
 {
   "Routes": [
-    //{
-    //  "UpstreamPathTemplate": "/ai",
-    //  "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
-    //  "DownstreamPathTemplate": "/api/ai",
-    //  "DownstreamScheme": "http",
-    //  "DownstreamHostAndPorts": [
-    //    {
-    //      "Host": "aicontentservice",
-    //      "Port": 80
-    //    }
-    //  ]
-    //},
-    //{
-    //  "UpstreamPathTemplate": "/reviews",
-    //  "UpstreamHttpMethod": [ "Get", "Post" ],
-    //  "DownstreamPathTemplate": "/api/reviews",
-    //  "DownstreamScheme": "http",
-    //  "DownstreamHostAndPorts": [
-    //    {
-    //      "Host": "reviewservice",
-    //      "Port": 80
-    //    }
-    //  ]
-    //},
-    //{
-    //  "UpstreamPathTemplate": "/reviews/{id}",
-    //  "UpstreamHttpMethod": [ "Get", "Put", "Delete" ],
-    //  "DownstreamPathTemplate": "/api/reviews/{id}",
-    //  "DownstreamScheme": "http",
-    //  "DownstreamHostAndPorts": [
-    //    {
-    //      "Host": "reviewservice",
-    //      "Port": 80
-    //    }
-    //  ]
-    //},
+    {
+      "UpstreamPathTemplate": "/user/register",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamPathTemplate": "/register",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "userservice",
+          "Port": 5047
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/user/login",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamPathTemplate": "/login",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "userservice",
+          "Port": 5047
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/user/refresh",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamPathTemplate": "/refresh",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "userservice",
+          "Port": 5047
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/user/confirm-email",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/confirmEmail",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "userservice",
+          "Port": 5047
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/user/resend-confirmation-email",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamPathTemplate": "/resendConfirmationEmail",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "userservice",
+          "Port": 5047
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/user/forgot-password",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamPathTemplate": "/forgotPassword",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "userservice",
+          "Port": 5047
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/user/reset-password",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamPathTemplate": "/resetPassword",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "userservice",
+          "Port": 5047
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/user/manage/2fa",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamPathTemplate": "/manage/2fa",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "userservice",
+          "Port": 5047
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/user/manage/info",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "DownstreamPathTemplate": "/manage/info",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "userservice",
+          "Port": 5047
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/review",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/Reviews",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "reviewservice",
+          "Port": 5269
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/review/{id}",
+      "UpstreamHttpMethod": [ "Get", "Put", "Delete" ],
+      "DownstreamPathTemplate": "/Reviews/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "reviewservice",
+          "Port": 5269
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/review",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamPathTemplate": "/Reviews",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "reviewservice",
+          "Port": 5269
+        }
+      ]
+    },
     {
       "UpstreamPathTemplate": "/videometa",
       "UpstreamHttpMethod": [ "Get" ],

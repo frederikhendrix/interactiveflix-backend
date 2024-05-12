@@ -7,10 +7,24 @@ services:
     volumes:
       - postgres-data:/var/lib/postgresql/data
     environment:
+      POSTGRES_DB: reviewservice
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_PASSWORD: toor
     ports:
       - 5432:5432
+
+  postgresqlUser:
+    image: postgres
+    container_name: postgresqlUser
+    restart: always
+    volumes:
+      - postgres-data-user:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: userservice
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: toor
+    ports:
+      - 5433:5432
 
   mongo:
     image: mongo:latest
@@ -32,13 +46,29 @@ services:
   #   build:
   #     context: ../../AiContentService/AiService/AiService
 
-  # reviewservice:
-  #   build:
-  #     context: ../../ReviewService/ReviewService/ReviewService
-  #   environment:
-  #     DATABASE_URL: postgresql://postgres:postgres@postgresql:5432/reviewservice
-  #   depends_on:
-  #     - postgresql
+  userservice:
+    build:
+      context: ../../UserService/UserService/UserService
+    container_name: userservice
+    restart: always
+    environment:
+      ConnectionStrings__DefaultConnection: "Host=postgresqlUser;Port=5432;Database=userservice;Username=postgres;Password=toor"
+    ports:
+      - "5047:5047"
+    depends_on:
+      - postgresqlUser
+
+  reviewservice:
+    build:
+      context: ../../ReviewService/ReviewService/ReviewService
+    container_name: reviewservice
+    restart: always
+    environment:
+      ConnectionStrings__DefaultConnection: "Host=postgresql;Port=5432;Database=reviewservice;Username=postgres;Password=toor"
+    ports:
+      - "5269:5269"
+    depends_on:
+      - postgresql
 
   videometaservice:
     build:
@@ -59,6 +89,8 @@ services:
     restart: always
     ports:
       - "5099:5099"
+    environment:
+      - BLOB_STORAGE_CONNECTION_STRING=${BLOB_STORAGE_CONNECTION_STRING}
 
   gatewayapi:
     build:
@@ -68,6 +100,7 @@ services:
     ports:
       - "5245:5245"
     depends_on:
+      - reviewservice
       - videometaservice
       - blobstorageservice
 
@@ -81,6 +114,9 @@ services:
 
 volumes:
   postgres-data:
+    driver: local
+  postgres-data-user:
+    driver: local
   mongo-data:
     driver: local
 
