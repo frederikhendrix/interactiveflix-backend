@@ -29,6 +29,7 @@ services:
   mongo:
     image: mongo:latest
     container_name: mongodb-videometa-container
+    restart: always
     command: mongod --auth --bind_ip_all
     ports:
       - "27017:27017"

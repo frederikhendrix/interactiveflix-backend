@@ -118,7 +118,11 @@
           "Host": "reviewservice",
           "Port": 5269
         }
-      ]
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Firebase",
+        "AllowedScopes": []
+      }
     },
     {
       "UpstreamPathTemplate": "/review/{id}",
@@ -167,6 +171,10 @@
           "Port": 5175
         }
       ]
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "Bearer",
+      //  "AllowedScopes": []
+      //}
     },
     {
       "UpstreamPathTemplate": "/videometa",
@@ -179,6 +187,10 @@
           "Port": 5175
         }
       ]
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "Bearer",
+      //  "AllowedScopes": []
+      //}
     },
     {
       "UpstreamPathTemplate": "/blob",
