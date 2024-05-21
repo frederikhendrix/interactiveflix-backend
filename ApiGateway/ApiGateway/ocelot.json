@@ -1,6 +1,18 @@
 {
   "Routes": [
     {
+      "UpstreamPathTemplate": "/chat",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamPathTemplate": "/Chat",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "aicontentservice",
+          "Port": 5016
+        }
+      ]
+    },
+    {
       "UpstreamPathTemplate": "/user/register",
       "UpstreamHttpMethod": [ "Post" ],
       "DownstreamPathTemplate": "/register",

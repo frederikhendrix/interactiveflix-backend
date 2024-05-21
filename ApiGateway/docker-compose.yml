@@ -43,9 +43,13 @@ services:
 
   
 
-  # aicontentservice:
-  #   build:
-  #     context: ../../AiContentService/AiService/AiService
+  aicontentservice:
+    build:
+      context: ../../AiContentService/AiService/AiService
+    container_name: aicontentservice
+    restart: always
+    ports: 
+      - "5016:5016"
 
   userservice:
     build:
@@ -60,24 +64,43 @@ services:
       - postgresqlUser
 
   reviewservice:
+    image: ${DOCKER_REGISTRY-}reviewservice
     build:
       context: ../../ReviewService/ReviewService/ReviewService
+      dockerfile: Dockerfile.dev
     container_name: reviewservice
     restart: always
+    env_file:
+      - .env
     environment:
-      ConnectionStrings__DefaultConnection: "Host=postgresql;Port=5432;Database=reviewservice;Username=postgres;Password=toor"
+      - ASPNETCORE_ENVIRONMENT=Development
+      - POSTGRES_HOST="${POSTGRES_HOST}"
+      - POSTGRES_PORT="${POSTGRES_PORT}"
+      - POSTGRES_DB="${POSTGRES_DB}"
+      - POSTGRES_USER="${POSTGRES_USER}"
+      - POSTGRES_PASSWORD="${POSTGRES_PASSWORD}"
+      - SERVICEBUS_CONNECTION_STRING="${SERVICEBUS_CONNECTION_STRING}"
+      - ConnectionStrings__DefaultConnection="Host=${POSTGRES_HOST};Port=${POSTGRES_PORT};Database=${POSTGRES_DB};Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD}"
     ports:
       - "5269:5269"
     depends_on:
       - postgresql
 
   videometaservice:
+    image: ${DOCKER_REGISTRY-}videometaservice
     build:
       context: ../../VideoMetaService/VideoMetaService/VideoMetaService
+      dockerfile: Dockerfile.dev
     container_name: videometaservice
     restart: always
+    env_file:
+      - .env
     environment:
-      MONGO_URI: mongo://admin:Test123!@mongodb-videometa-container:27017/VideoMetaDB
+      - ASPNETCORE_ENVIRONMENT=Development
+      - MONGODB_CONNECTION_STRING=mongodb://admin:Test123!@mongo:27017
+      - MONGODB_DATABASE_NAME=VideoMetaDB
+      - SERVICEBUS_CONNECTION_STRING=${SERVICEBUS_CONNECTION_STRING}
+      - SERVICEBUS_TOPIC_NAME=interactiveflix-topic
     ports:
       - "5175:5175"
     depends_on:
@@ -96,11 +119,13 @@ services:
   gatewayapi:
     build:
       context: ./ApiGateway
+      dockerfile: Dockerfile.dev
     container_name: gatewayapi
     restart: always
     ports:
       - "5245:5245"
     depends_on:
+      - aicontentservice
       - reviewservice
       - videometaservice
       - blobstorageservice
