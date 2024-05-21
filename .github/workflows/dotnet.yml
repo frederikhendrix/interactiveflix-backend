@@ -22,10 +22,10 @@ jobs:
           dotnet-version: 8.0.x
 
       - name: Restore dependencies for API Gateway
-        run: dotnet restore ./ApiGateway/ApiGateway.csproj
+        run: dotnet restore ./ApiGateway/ApiGateway/ApiGateway.csproj
 
       - name: Build API Gateway
-        run: dotnet build ./ApiGateway/ApiGateway.csproj --no-restore
+        run: dotnet build ./ApiGateway/ApiGateway/ApiGateway.csproj --no-restore
 
       # Steps for building and pushing Docker images
       - name: Set up Docker Buildx
