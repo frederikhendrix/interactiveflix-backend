@@ -41,6 +41,6 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: ./ApiGateway
-          file: ./ApiGateway/Dockerfile
+          file: ./ApiGateway/ApiGateway/Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/apigateway-backend:latest
