@@ -43,13 +43,13 @@ services:
 
   
 
-  aicontentservice:
-    build:
-      context: ../../AiContentService/AiService/AiService
-    container_name: aicontentservice
-    restart: always
-    ports: 
-      - "5016:5016"
+  # aicontentservice:
+  #   build:
+  #     context: ../../AiContentService/AiService/AiService
+  #   container_name: aicontentservice
+  #   restart: always
+  #   ports: 
+  #     - "5016:5016"
 
   userservice:
     build:
@@ -126,18 +126,9 @@ services:
     ports:
       - "5245:5245"
     depends_on:
-      - aicontentservice
       - reviewservice
       - videometaservice
       - blobstorageservice
-
-  # userservice:
-  #   build:
-  #     context: ../../UserService/UserService/UserService
-  #   environment:
-  #     DATABASE_URL: postgresql://postgres:postgres@postgresql:5432/userservice
-  #   depends_on:
-  #     - postgresql
 
 volumes:
   postgres-data:

@@ -121,8 +121,8 @@
       ]
     },
     {
-      "UpstreamPathTemplate": "/review",
-      "UpstreamHttpMethod": [ "Get" ],
+      "UpstreamPathTemplate": "/get/review",
+      "UpstreamHttpMethod": [ "Get", "OPTIONS" ],
       "DownstreamPathTemplate": "/Reviews",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -137,8 +137,8 @@
       }
     },
     {
-      "UpstreamPathTemplate": "/review/{id}",
-      "UpstreamHttpMethod": [ "Get", "Put", "Delete" ],
+      "UpstreamPathTemplate": "/get/review/{id}",
+      "UpstreamHttpMethod": [ "Get", "Put", "Delete", "OPTIONS" ],
       "DownstreamPathTemplate": "/Reviews/{id}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -146,11 +146,15 @@
           "Host": "reviewservice",
           "Port": 5269
         }
-      ]
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Firebase",
+        "AllowedScopes": []
+      }
     },
     {
-      "UpstreamPathTemplate": "/review",
-      "UpstreamHttpMethod": [ "Post" ],
+      "UpstreamPathTemplate": "/post/review",
+      "UpstreamHttpMethod": [ "Post", "OPTIONS" ],
       "DownstreamPathTemplate": "/Reviews",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -158,11 +162,15 @@
           "Host": "reviewservice",
           "Port": 5269
         }
-      ]
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Firebase",
+        "AllowedScopes": []
+      }
     },
     {
-      "UpstreamPathTemplate": "/videometa",
-      "UpstreamHttpMethod": [ "Get" ],
+      "UpstreamPathTemplate": "/get/videometa",
+      "UpstreamHttpMethod": [ "Get", "OPTIONS" ],
       "DownstreamPathTemplate": "/VideoMetadata",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -170,11 +178,15 @@
           "Host": "videometaservice",
           "Port": 5175
         }
-      ]
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Firebase",
+        "AllowedScopes": []
+      }
     },
     {
-      "UpstreamPathTemplate": "/videometa/{id}",
-      "UpstreamHttpMethod": [ "Get", "Put", "Delete" ],
+      "UpstreamPathTemplate": "/get/videometa/{id}",
+      "UpstreamHttpMethod": [ "Get", "Put", "Delete", "OPTIONS" ],
       "DownstreamPathTemplate": "/VideoMetadata/{id}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -182,15 +194,15 @@
           "Host": "videometaservice",
           "Port": 5175
         }
-      ]
-      //"AuthenticationOptions": {
-      //  "AuthenticationProviderKey": "Bearer",
-      //  "AllowedScopes": []
-      //}
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Firebase",
+        "AllowedScopes": []
+      }
     },
     {
-      "UpstreamPathTemplate": "/videometa",
-      "UpstreamHttpMethod": [ "Post" ],
+      "UpstreamPathTemplate": "/post/videometa",
+      "UpstreamHttpMethod": [ "Post", "OPTIONS" ],
       "DownstreamPathTemplate": "/VideoMetadata",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -198,15 +210,15 @@
           "Host": "videometaservice",
           "Port": 5175
         }
-      ]
-      //"AuthenticationOptions": {
-      //  "AuthenticationProviderKey": "Bearer",
-      //  "AllowedScopes": []
-      //}
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Firebase",
+        "AllowedScopes": []
+      }
     },
     {
       "UpstreamPathTemplate": "/blob",
-      "UpstreamHttpMethod": [ "Get" ],
+      "UpstreamHttpMethod": [ "Get", "OPTIONS" ],
       "DownstreamPathTemplate": "/Blob",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -214,7 +226,11 @@
           "Host": "blobstorageservice",
           "Port": 5099
         }
-      ]
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Firebase",
+        "AllowedScopes": []
+      }
     }
   ],
   "GlobalConfiguration": {

@@ -1,3 +1,4 @@
+using ApiGateway.Middleware;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Ocelot.DependencyInjection;
@@ -29,13 +30,32 @@ builder.Services.AddAuthentication(options =>
 builder.Configuration.AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
 builder.Services.AddOcelot(builder.Configuration);
 
+// Configure CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowReactApp",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:3000")
+                  .AllowAnyHeader()
+                  .AllowAnyMethod()
+                  .AllowCredentials();
+        });
+});
+
 var app = builder.Build();
 
 // Configure the app to use middleware
 app.UseRouting();
 
+// Use CORS before other middlewares
+app.UseCors("AllowReactApp");
+
 app.UseAuthentication();
 app.UseAuthorization();
+
+// Add Role Validation Middleware
+app.UseMiddleware<RoleValidationMiddleware>();
 
 app.UseOcelot().Wait();
 
