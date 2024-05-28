@@ -176,7 +176,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "videometaservice",
-          "Port": 5175
+          "Port": 80
         }
       ],
       "AuthenticationOptions": {
@@ -192,7 +192,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "videometaservice",
-          "Port": 5175
+          "Port": 80
         }
       ],
       "AuthenticationOptions": {
@@ -208,7 +208,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "videometaservice",
-          "Port": 5175
+          "Port": 80
         }
       ],
       "AuthenticationOptions": {
@@ -234,6 +234,6 @@
     }
   ],
   "GlobalConfiguration": {
-    "BaseUrl": "http://localhost:5245"
+    "BaseUrl": "http://apigateway"
   }
 }
