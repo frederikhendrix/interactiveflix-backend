@@ -1,30 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: apigateway
+  name: apigateway-backend
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
-      app: apigateway
+      app: apigateway-backend
   template:
     metadata:
       labels:
-        app: apigateway
+        app: apigateway-backend
     spec:
       containers:
-        - name: apigateway
+        - name: apigateway-backend
           image: rikhendrix/apigateway-backend:latest
           ports:
-            - containerPort: 5245
-          env:
-            - name: ASPNETCORE_ENVIRONMENT
-              value: "Production"
-          volumeMounts:
-            - name: ocelot-config
-              mountPath: /etc/ocelot
-              subPath: ocelot.json
-      volumes:
-        - name: ocelot-config
-          configMap:
-            name: ocelot-config
+            - containerPort: 80
