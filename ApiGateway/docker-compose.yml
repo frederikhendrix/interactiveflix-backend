@@ -96,15 +96,13 @@ services:
     env_file:
       - .env
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - MONGODB_CONNECTION_STRING=mongodb://admin:Test123!@mongo:27017
-      - MONGODB_DATABASE_NAME=VideoMetaDB
-      - SERVICEBUS_CONNECTION_STRING=${SERVICEBUS_CONNECTION_STRING}
-      - SERVICEBUS_TOPIC_NAME=interactiveflix-topic
+       - ASPNETCORE_ENVIRONMENT=Development
+       - MONGODB_CONNECTION_STRING=${MONGODB_CONNECTION_STRING}
+       - MONGODB_DATABASE_NAME=VideoMetaDB
+       - SERVICEBUS_CONNECTION_STRING=${SERVICEBUS_CONNECTION_STRING}
+       - SERVICEBUS_TOPIC_NAME=interactiveflix-topic
     ports:
       - "5175:5175"
-    depends_on:
-      - mongo
 
   blobstorageservice:
     build:

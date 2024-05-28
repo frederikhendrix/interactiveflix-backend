@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apigateway-backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: apigateway-backend
+  template:
+    metadata:
+      labels:
+        app: apigateway-backend
+    spec:
+      containers:
+        - name: apigateway-backend
+          image: rikhendrix/apigateway-backend:latest
+          ports:
+            - containerPort: 80
