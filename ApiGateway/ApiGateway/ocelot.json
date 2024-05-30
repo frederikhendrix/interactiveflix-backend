@@ -176,7 +176,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "videometaservice",
-          "Port": 80
+          "Port": 5175
         }
       ],
       "AuthenticationOptions": {
@@ -185,14 +185,14 @@
       }
     },
     {
-      "UpstreamPathTemplate": "/get/videometa/{id}",
+      "UpstreamPathTemplate": "/videometa/{id}",
       "UpstreamHttpMethod": [ "Get", "Put", "Delete", "OPTIONS" ],
       "DownstreamPathTemplate": "/VideoMetadata/{id}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "videometaservice",
-          "Port": 80
+          "Port": 5175
         }
       ],
       "AuthenticationOptions": {
@@ -208,7 +208,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "videometaservice",
-          "Port": 80
+          "Port": 5175
         }
       ],
       "AuthenticationOptions": {
@@ -217,9 +217,41 @@
       }
     },
     {
-      "UpstreamPathTemplate": "/blob",
+      "UpstreamPathTemplate": "/blob/{name}",
       "UpstreamHttpMethod": [ "Get", "OPTIONS" ],
-      "DownstreamPathTemplate": "/Blob",
+      "DownstreamPathTemplate": "/Blob/{name}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "blobstorageservice",
+          "Port": 5099
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Firebase",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/blob/upload",
+      "UpstreamHttpMethod": [ "Post", "OPTIONS" ],
+      "DownstreamPathTemplate": "/Blob/upload",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "blobstorageservice",
+          "Port": 5099
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Firebase",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/blob/delete",
+      "UpstreamHttpMethod": [ "Delete", "OPTIONS" ],
+      "DownstreamPathTemplate": "/Blob/delete",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -234,6 +266,6 @@
     }
   ],
   "GlobalConfiguration": {
-    "BaseUrl": "http://apigateway"
+    "BaseUrl": "http://localhost:5245"
   }
 }

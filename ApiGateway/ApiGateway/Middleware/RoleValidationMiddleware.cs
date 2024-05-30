@@ -50,6 +50,8 @@
             var adminEndpoints = new[]
             {
             "/get/review",
+            "/post/videometa",
+            "/blob/upload",
             };
 
             foreach (var endpoint in adminEndpoints)

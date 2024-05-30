@@ -15,13 +15,13 @@ builder.Services.AddAuthentication(options =>
 })
 .AddJwtBearer("Firebase", options =>
 {
-    options.Authority = "https://securetoken.google.com/interactiveflix";
+    options.Authority = "https://securetoken.google.com/interactiveflix-ae062";
     options.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuer = true,
-        ValidIssuer = "https://securetoken.google.com/interactiveflix",
+        ValidIssuer = "https://securetoken.google.com/interactiveflix-ae062",
         ValidateAudience = true,
-        ValidAudience = "interactiveflix",
+        ValidAudience = "interactiveflix-ae062",
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true
     };
