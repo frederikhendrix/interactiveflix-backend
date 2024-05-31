@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: apigateway-backend
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: apigateway-backend
@@ -16,4 +16,5 @@ spec:
         - name: apigateway-backend
           image: rikhendrix/apigateway-backend:latest
           ports:
-            - containerPort: 80
+            - containerPort: 8080
+            - containerPort: 8081
