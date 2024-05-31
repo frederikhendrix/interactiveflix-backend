@@ -137,6 +137,22 @@
       }
     },
     {
+      "UpstreamPathTemplate": "/get/review/{movieId}",
+      "UpstreamHttpMethod": [ "Get", "OPTIONS" ],
+      "DownstreamPathTemplate": "/Reviews/movie/{movieId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "reviewservice",
+          "Port": 5269
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Firebase",
+        "AllowedScopes": []
+      }
+    },
+    {
       "UpstreamPathTemplate": "/get/review/{id}",
       "UpstreamHttpMethod": [ "Get", "Put", "Delete", "OPTIONS" ],
       "DownstreamPathTemplate": "/Reviews/{id}",
