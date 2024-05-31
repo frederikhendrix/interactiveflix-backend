@@ -49,7 +49,7 @@ jobs:
       - name: Set up Azure CLI
         uses: azure/setup-kubectl@v1
         with:
-          version: 'latest'
+          version: "latest"
 
       - name: Log in to Azure
         uses: azure/login@v1
@@ -63,3 +63,7 @@ jobs:
         run: |
           kubectl apply -f ./k8s/deployment.yaml
           kubectl apply -f ./k8s/service.yaml
+
+      - name: Force rollout restart
+        run: |
+          kubectl rollout restart deployment apigateway-backend
