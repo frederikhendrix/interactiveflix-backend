@@ -27,7 +27,7 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-builder.Configuration.AddJsonFile("ocelotkubernetes.json", optional: false, reloadOnChange: true);
+builder.Configuration.AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
 builder.Services.AddOcelot(builder.Configuration);
 
 // Configure CORS
@@ -36,10 +36,10 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowAllOrigins",
         policy =>
         {
-            policy.WithOrigins()
-                  .AllowAnyHeader()
-                  .AllowAnyMethod()
-                  .AllowCredentials();
+            policy.AllowAnyOrigin()    // Allow all origins
+                  .AllowAnyHeader()    // Allow any header
+                  .AllowAnyMethod();   // Allow any method
+                                       // .AllowCredentials(); // Don't use this if AllowAnyOrigin is used
         });
 });
 
