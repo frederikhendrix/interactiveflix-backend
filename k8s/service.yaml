@@ -7,11 +7,7 @@ spec:
   selector:
     app: apigateway-backend
   ports:
-    - name: http
+    - name: apigateway-backend
       protocol: TCP
       port: 80
       targetPort: 8080
-    - name: secondary
-      protocol: TCP
-      port: 81
-      targetPort: 8081

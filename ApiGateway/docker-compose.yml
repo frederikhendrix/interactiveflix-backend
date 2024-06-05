@@ -114,6 +114,7 @@ services:
       - "5099:5099"
     environment:
       - BLOB_STORAGE_CONNECTION_STRING=${BLOB_STORAGE_CONNECTION_STRING}
+      - VIRUSTOTAL_API_KEY=${VIRUSTOTAL_API_KEY}
 
   gatewayapi:
     build:

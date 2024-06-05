@@ -64,6 +64,6 @@ jobs:
           kubectl apply -f ./k8s/deployment.yaml
           kubectl apply -f ./k8s/service.yaml
 
-      - name: Force rollout restart
+      - name: Force rollout restart to pod
         run: |
           kubectl rollout restart deployment apigateway-backend

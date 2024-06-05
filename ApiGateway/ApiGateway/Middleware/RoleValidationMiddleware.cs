@@ -49,7 +49,6 @@
             // List admin endpoints here
             var adminEndpoints = new[]
             {
-            "/get/review",
             "/post/videometa",
             "/blob/upload",
             };
