@@ -7,7 +7,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "reviewservice",
+          "Host": "reviewservice-backend",
           "Port": 5269
         }
       ],
@@ -23,7 +23,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "reviewservice",
+          "Host": "reviewservice-backend",
           "Port": 5269
         }
       ],
@@ -39,7 +39,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "reviewservice",
+          "Host": "reviewservice-backend",
           "Port": 5269
         }
       ],
@@ -55,7 +55,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "reviewservice",
+          "Host": "reviewservice-backend",
           "Port": 5269
         }
       ],
