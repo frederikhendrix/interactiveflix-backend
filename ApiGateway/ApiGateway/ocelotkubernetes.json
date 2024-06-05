@@ -71,7 +71,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "videometaservice",
+          "Host": "videometaservice-backend",
           "Port": 5175
         }
       ],
@@ -87,7 +87,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "videometaservice",
+          "Host": "videometaservice-backend",
           "Port": 5175
         }
       ],
@@ -103,7 +103,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "videometaservice",
+          "Host": "videometaservice-backend",
           "Port": 5175
         }
       ],
