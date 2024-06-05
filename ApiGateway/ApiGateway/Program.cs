@@ -27,7 +27,7 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-builder.Configuration.AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
+builder.Configuration.AddJsonFile("ocelotkubernetes.json", optional: false, reloadOnChange: true);
 builder.Services.AddOcelot(builder.Configuration);
 
 // Configure CORS
@@ -58,5 +58,8 @@ app.UseAuthorization();
 app.UseMiddleware<RoleValidationMiddleware>();
 
 app.UseOcelot().Wait();
+
+// Add a simple endpoint to return a text message at the home URL
+app.MapGet("/", () => "API Gateway is running");
 
 app.Run();

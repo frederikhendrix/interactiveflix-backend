@@ -7,8 +7,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "reviewservice-backend.default.svc.cluster.local",
-          "Port": 80
+          "Host": "reviewservice",
+          "Port": 5269
         }
       ],
       "AuthenticationOptions": {
@@ -23,8 +23,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "reviewservice-backend.default.svc.cluster.local",
-          "Port": 80
+          "Host": "reviewservice",
+          "Port": 5269
         }
       ],
       "AuthenticationOptions": {
@@ -39,8 +39,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "reviewservice-backend.default.svc.cluster.local",
-          "Port": 80
+          "Host": "reviewservice",
+          "Port": 5269
         }
       ],
       "AuthenticationOptions": {
@@ -55,8 +55,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "reviewservice-backend.default.svc.cluster.local",
-          "Port": 80
+          "Host": "reviewservice",
+          "Port": 5269
         }
       ],
       "AuthenticationOptions": {
@@ -71,8 +71,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "videometaservice-backend.default.svc.cluster.local",
-          "Port": 80
+          "Host": "videometaservice",
+          "Port": 5175
         }
       ],
       "AuthenticationOptions": {
@@ -87,8 +87,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "videometaservice-backend.default.svc.cluster.local",
-          "Port": 80
+          "Host": "videometaservice",
+          "Port": 5175
         }
       ],
       "AuthenticationOptions": {
@@ -103,8 +103,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "videometaservice-backend.default.svc.cluster.local",
-          "Port": 80
+          "Host": "videometaservice",
+          "Port": 5175
         }
       ],
       "AuthenticationOptions": {
@@ -119,8 +119,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "blobstorageservice.default.svc.cluster.local",
-          "Port": 80
+          "Host": "blobstorageservice",
+          "Port": 5099
         }
       ],
       "AuthenticationOptions": {
@@ -135,8 +135,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "blobstorageservice.default.svc.cluster.local",
-          "Port": 80
+          "Host": "blobstorageservice",
+          "Port": 5099
         }
       ],
       "AuthenticationOptions": {
@@ -151,8 +151,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "blobstorageservice.default.svc.cluster.local",
-          "Port": 80
+          "Host": "blobstorageservice",
+          "Port": 5099
         }
       ],
       "AuthenticationOptions": {
@@ -160,8 +160,5 @@
         "AllowedScopes": []
       }
     }
-  ],
-  "GlobalConfiguration": {
-    "BaseUrl": "http://172.211.152.111"
-  }
+  ]
 }
