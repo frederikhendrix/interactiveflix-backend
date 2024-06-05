@@ -16,4 +16,4 @@ spec:
         - name: apigateway-backend
           image: rikhendrix/apigateway-backend:latest
           ports:
-            - containerPort: 8080
+            - containerPort: 5245
