@@ -71,7 +71,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "videometaservice-backend",
+          "Host": "videometaservice",
           "Port": 5175
         }
       ],
@@ -87,7 +87,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "videometaservice-backend",
+          "Host": "videometaservice",
           "Port": 5175
         }
       ],
@@ -103,7 +103,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "videometaservice-backend",
+          "Host": "videometaservice",
           "Port": 5175
         }
       ],
@@ -160,5 +160,8 @@
         "AllowedScopes": []
       }
     }
-  ]
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://apigateway"
+  }
 }
