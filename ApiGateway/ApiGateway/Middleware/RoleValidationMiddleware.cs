@@ -34,7 +34,7 @@
                     }
                 }
 
-                // Allow other roles
+                // Allow other role
                 await _next(context);
                 return;
             }
