@@ -33,6 +33,22 @@
       }
     },
     {
+      "UpstreamPathTemplate": "/get/reviews/{userId}",
+      "UpstreamHttpMethod": [ "Get", "OPTIONS" ],
+      "DownstreamPathTemplate": "/Reviews/user/{userId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "reviewservice-backend",
+          "Port": 5269
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Firebase",
+        "AllowedScopes": []
+      }
+    },
+    {
       "UpstreamPathTemplate": "/get/review/{id}",
       "UpstreamHttpMethod": [ "Get", "Put", "Delete", "OPTIONS" ],
       "DownstreamPathTemplate": "/Reviews/{id}",
