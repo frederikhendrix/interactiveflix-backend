@@ -57,7 +57,7 @@
             {
                 if (path.StartsWith(endpoint, System.StringComparison.OrdinalIgnoreCase))
                 {
-                    return true;
+                    return true; 
                 }
             }
 
